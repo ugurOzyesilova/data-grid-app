@@ -1,0 +1,401 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+::-webkit-scrollbar {
+  width: 0.1em;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #744bfc;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  background: #ffffff;
+  padding: 1.4em;
+  position: relative;
+}
+
+.nav__links {
+  display: flex;
+  width: 60%;
+  justify-content: space-between;
+}
+
+.nav__links li {
+  list-style: none;
+  font-size: 0.875em;
+  cursor: pointer;
+}
+
+.nav__links li:hover {
+  color: #744bfc;
+}
+
+.nav__social__links {
+  display: flex;
+  gap: 0.875em;
+}
+
+.datagrid__nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.datagrid__search {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.datagrid__search__bar {
+  border-radius: 2.4375em;
+  width: 23vw;
+  min-width: 240px;
+  display: flex;
+  align-items: center;
+  background: #ffff;
+  overflow:hidden;
+  justify-content: space-between;
+}
+
+.datagrid__search__input {
+  width: 100%;
+  height: 2.625em;
+  border: none;
+  outline: none;
+  padding:0.4em 1.2em;
+}
+
+.datagrid__search__button {
+  border-radius: 0 2.4375em 2.4375em 0;
+  background: #744bfc;
+  height: 42px;
+  width: 2.8125em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.datagrid__search__button > svg {
+  margin-right: 4px;
+}
+
+.datagrid__filter {
+  height: 2.625em;
+  width: 2.625em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 2.4375em;
+  margin-left: 0.5625em;
+  background: #ffff;
+}
+
+.add__account {
+  border-radius: 2.4375em;
+  height: 3.2em;
+  width: 10.9375em;
+  color: #ffff;
+  background: #744bfc;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.625em 1.25em;
+  border: none;
+}
+
+.add__account span {
+  font-size: 0.875em;
+}
+
+.add__account > span:nth-child(1) {
+  
+  font-size: 1.4em;
+}
+
+
+.datagrid {
+  background: linear-gradient(
+    180deg,
+    #eff2ff -30.56%,
+    rgba(232, 236, 255, 0) 135.85%
+  );
+  margin: 1em;
+  height: 86vh;
+  padding: 2.75em 4.6875em;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 5px;
+}
+
+.datagrid__grid {
+  border-radius: 10px;
+  position: relative;
+
+  border: 1px solid #e0e0e0;
+  
+  overflow:hidden;
+}
+
+.add__account__modal {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 30.5em;
+  height: 25.375em;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #ffffff;
+  border-radius: 13px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+
+.add__account__modal svg {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 1.2em;
+}
+
+.add__account__modal__input {
+  padding: 8px;
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+}
+
+.add__account__modal__input input {
+  border-radius: 38px;
+  border: 1px solid #d9d9d9;
+  padding: 10px;
+  outline: none;
+}
+
+.add__account__modal__input label {
+  font-size: 0.8125em;
+  padding: 10px;
+}
+
+.add__account__modal__buttons {
+  width: 80%;
+  display: flex;
+  justify-content: flex-end;
+  padding: 0 10px;
+  gap: 10px;
+  position: absolute;
+  bottom: 10px;
+}
+
+.add__account__modal__buttons button {
+  background: #744bfc;
+  border-radius: 34px;
+  width: 82.76px;
+  height: 37.02px;
+  border: none;
+  color: #f5f7ff;
+}
+
+.add__account__modal__buttons button:nth-child(1) {
+  background: #f5f7ff;
+  color: #744bfc;
+}
+
+.pagination {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.5em;
+}
+
+.pagination__rowcount {
+  display: flex;
+  align-items: center;
+  width: 12%;
+  min-width: 150px;
+
+  justify-content: space-between;
+  align-items: center;
+}
+
+.pagination__rowcount > span {
+  color: #744bfc;
+  font-size: 0.75em;
+}
+.pagination__rowcount__input {
+  width: 90px;
+  height: 37px;
+  background: #ffffff;
+  border: 1px solid #cfc0ff;
+  border-radius: 39px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pagination__rowcount__input span {
+  font-size: 0.625em;
+}
+
+.pagination__rowcount__buttons {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 3px;
+
+  height: 100%;
+  margin-left: 15px;
+}
+
+input::-webkit-inner-spin-button,
+input::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  appearance: none;
+  margin: 0; /* Remove default margin */
+}
+.pagination__rowcount input {
+  border: none;
+  width: 10%;
+  outline: none;
+  font-size: 0.625em;
+}
+
+.pagination__pagecount {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+  align-items: center;
+}
+
+.pagination__pagecount__input {
+  border: 1px solid #eaeaea;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 20%;
+  border-radius: 5px;
+}
+.pagination__pagecount span {
+  color: #efefef;
+}
+
+.pagination__pagecount span:nth-child(1) {
+  color: #744bfc;
+}
+
+.pagination__pagecount__input input {
+  width: 80%;
+  border: none;
+  outline: none;
+  background: none;
+}
+
+.pagination__button {
+  border: none;
+  outline: none;
+  background: none;
+  color: #744bfc;
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
+.pagination__button:disabled {
+  color: #efefef;
+  cursor: not-allowed;
+}
+
+textarea:focus,
+input:focus,
+input {
+  outline: 0;
+}
+
+.dx-texteditor.dx-editor-filled::after {
+  border-bottom: none !important;
+  height: 25px !important;
+  width: 21px !important;
+}
+.dx-pager.dx-light-mode .dx-page-index {
+  min-width: 0 !important;
+}
+
+.dx-texteditor.dx-editor-filled .dx-placeholder::before,
+.dx-texteditor.dx-editor-filled .dx-texteditor-input,
+.dx-texteditor.dx-editor-outlined .dx-placeholder::before,
+.dx-texteditor.dx-editor-outlined .dx-texteditor-input {
+  padding: 0 !important;
+  text-align: center !important;
+}
+
+@media (max-width: 768px) {
+  .nav {
+    position: relative;
+    height: 14vh;
+    align-items: flex-start;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0;
+  }
+  .nav > svg {
+    width: 10vw;
+    margin-left: 0.2em;
+  }
+  .nav__links {
+    position: absolute;
+    color: #ffff;
+    background: #744bfc;
+    width: 100%;
+    bottom: 0;
+    font-size: 0.825em;
+    padding: 1em 0.2em;
+  }
+
+  .nav__social__links {
+    margin-top: 0.6em;
+    gap: 0.2em;
+    margin-right: 0.2em;
+  }
+
+  .datagrid {
+    margin: 0;
+    padding: 0.5em;
+  }
+  .pagination {
+    margin: 0;
+  }
+  .pagination__rowcount > span {
+    color: #744bfc;
+    font-size: 0.825em;
+    font-weight: bold;
+  }
+
+  .add__account {
+    width: 3.2em;
+  }
+  .add__account span:nth-child(2) {
+    display: none;
+  }
+
+  .add__account span:nth-child(1) {
+    font-size: 1.25em;
+  }
+  ::placeholder {
+    font-size: 0.875em;
+  }
+}
