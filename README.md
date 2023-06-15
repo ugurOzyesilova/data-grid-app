@@ -1,21 +1,26 @@
-Search Functionality ; 
-    -Approach 1 : DevExtreme (Toolbar, SearchPanel, Item Components)
-    -Approach 2 : Manual Fİlter Implementation (Preferred)
 
-Pagination & RowSelection ; 
-    -Approach 1 : DevExtreme (Paging, Pager)
-    -Approach 2 : Manual Row Selection and Pagination Implementation (Preferred)
+## Installation
 
-Data ; 
-    -Approach 1 : Local (Create data.json file)
-    -Approach 2 : Mockapi.io
+#### Clone Repository
 
-Data-Grid ; 
-    -Approach 1 : DevExtreme (DataGrid) (Preferred)
-    -Approach 2 : Manual Implementation
+```bash
+  git clone https://github.com/ugurOzyesilova/data-grid-app.git
+```
 
-Adding Data;
-    -Approach 1 : DevExreme (SpeedDialAction)
-    -Approach 2 : Manual Implementation (with Modal and Server Request) (Preferred)
+#### Navigate the Project
 
+```bash
+  cd data-grid-app
+```
 
+#### Dependencies
+
+```bash
+npm install react@^18.2.0 react-dom@^18.2.0 react-modal@^3.16.1 devextreme@22.2.6 devextreme-react@22.2.6 react-icons@^4.9.0
+```
+
+#### Start Development Server 
+
+```bash
+npm start
+```
