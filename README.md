@@ -24,3 +24,7 @@ npm install react@^18.2.0 react-dom@^18.2.0 react-modal@^3.16.1 devextreme@22.2.
 ```bash
 npm start
 ```
+
+
+Before using the data-grid-app, ensure that you have the following prerequisites installed on your machine:
+Node.js v16.13.1 or a compatible version
