@@ -160,7 +160,7 @@ const DatasGrid = ({ datas, setDatas }) => {
     const getVisibleData = () => {
         const startIndex = currentPage * pageSize; // Start Index
         const endIndex = startIndex + filteredRowCount; // End Index
-        return filteredData.slice(startIndex, endIndex); 
+        return filteredData.slice(startIndex, endIndex);
     };
 
     const totalPages = Math.ceil(filteredData.length / pageSize); // Calculate total number of pages
@@ -211,48 +211,109 @@ const DatasGrid = ({ datas, setDatas }) => {
             });
         }
     };
+    const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+
+    useEffect(() => {
+        const handleResize = () => {
+            setIsMobile(window.innerWidth < 768);
+        };
+        window.addEventListener('resize', handleResize);
+        // Clean up the event listener
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
+    }, []);
+
 
     return (
         <section className="datagrid">
             <DatasGridNav addData={addData} onSearch={handleSearch} />
-            <div className="datagrid__grid">
-                {datas && datas.length > 0 && datas[0].columns && (
-                    <DataGrid
-                        dataSource={getVisibleData()}
-                        showBorders={false}
-                        rowAlternationEnabled={true}
-                        widthByColumnContent={true}
-                        showColumnLines={true}
-                        height="510px"
-                    >
 
-                        {/* <Column
+
+            {isMobile ? (
+                <>
+                    {datas && datas.length > 0 && datas[0].columns && (
+                        <DataGrid
+                            dataSource={getVisibleData()}
+                            showBorders={false}
+                            rowAlternationEnabled={true}
+                            widthByColumnContent={true}
+                            showColumnLines={true}
+                            height="510px"
+                        >
+
+                            {/* <Column
                             caption="Actions"
                             cellRender={(cellData) => (
                                 <button onClick={() => deleteData(cellData.data)}>Delete</button>
                             )}
                         /> */}
-                       
-                       
-                        {Object.keys(datas[0].columns).map((column) => (
-                            <Column
-                                className="datagrid__column"
-                                key={column}
-                                dataField={column}
-                                caption={datas[0].columns[column]}
-                                showBorders={true}
+
+
+                            {Object.keys(datas[0].columns).map((column) => (
+                                <Column
+                                    className="datagrid__column"
+                                    key={column}
+                                    dataField={column}
+                                    caption={datas[0].columns[column]}
+                                    showBorders={true}
+                                />
+                            ))}
+                            <Paging
+                                defaultPageSize={pageSize}
+                                defaultPageIndex={0}
+                                pageSize={filteredRowCount}
+                                onPageChange={onPageChange}
+                                totalCount={filteredData.length}
                             />
-                        ))}
-                        <Paging
-                            defaultPageSize={pageSize}
-                            defaultPageIndex={0}
-                            pageSize={filteredRowCount}
-                            onPageChange={onPageChange}
-                            totalCount={filteredData.length}
-                        />
-                    </DataGrid>
-                )}
-            </div>
+                        </DataGrid>
+                    )}
+                </>
+
+            ) : (
+                <div className="datagrid__grid">
+                    {datas && datas.length > 0 && datas[0].columns && (
+                        <DataGrid
+                            dataSource={getVisibleData()}
+                            showBorders={false}
+                            rowAlternationEnabled={true}
+                            widthByColumnContent={true}
+                            showColumnLines={true}
+                            height="510px"
+                        >
+
+                            {/* <Column
+                            caption="Actions"
+                            cellRender={(cellData) => (
+                                <button onClick={() => deleteData(cellData.data)}>Delete</button>
+                            )}
+                        /> */}
+
+
+                            {Object.keys(datas[0].columns).map((column) => (
+                                <Column
+                                    className="datagrid__column"
+                                    key={column}
+                                    dataField={column}
+                                    caption={datas[0].columns[column]}
+                                    showBorders={true}
+                                />
+                            ))}
+                            <Paging
+                                defaultPageSize={pageSize}
+                                defaultPageIndex={0}
+                                pageSize={filteredRowCount}
+                                onPageChange={onPageChange}
+                                totalCount={filteredData.length}
+                            />
+                        </DataGrid>
+                    )}
+                </div>
+            )
+            }
+
+
+
             <DatasGridPagination
                 currentPage={currentPage}
                 pageSize={pageSize}
